@@ -1,56 +1,67 @@
-'use client'
-
-import Image from 'next/image'
-import { useRouter } from 'next/navigation';
-
 export default function Home() {
-
-  const router = useRouter()
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#387478]">
-      <div className="bg-[#E2F1E7] rounded-lg p-8 shadow-lg w-96">
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-1/4 bg-[#E2F1E7] flex flex-col p-6">
         {/* Logo */}
-        <div className="flex justify-center mb-6">
-          <Image
-            src="/logo.ico"
-            width={100}
-            height={100}
-            alt='Logo'
-            ></Image>
+        <div className="flex items-center gap-2 mb-8">
+          <img src="/logo.ico"
+            alt="AquaViva Logo"
+            className="w-20 h-20" />
         </div>
-        {/* Formulário */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-[#629584] font-bold mb-1">Login</label>
+
+        {/* Busca */}
+        <div className="mb-2">
+          <label htmlFor="search" className="text-[#629584] font-bold p-1">
+            Busca
+          </label>
+          <div className="relative mt-2">
             <input
               type="text"
-              placeholder="Digite seu login"
-              className="text-[#629584] w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
+              id="search"
+              placeholder="Digite a Cidade"
+              className="w-full text-[#629584] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
             />
+            <button className="absolute right-2 top-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-[#629584]"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.9 14.32a8 8 0 111.414-1.415l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
-          <div>
-            <label className="block text-[#629584] font-bold mb-1">Senha</label>
-            <input
-              type="password"
-              placeholder="Digite sua senha"
-              className="text-[#629584] w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
-            />
-          </div>
-          <button
-            onClick={() => router.push('/telaInicial')}
-            type="submit"
-            className="w-full bg-[#243642] text-white font-medium py-2 rounded hover:bg-teal-800 transition"
-          >
-            Entrar
-          </button>
-          <a
-            href="#"
-            className="block text-center text-teal-600 text-sm mt-4 hover:underline"
-          >
-            Suporte
-          </a>
-        </form>
+        </div>
+
+        {/* Histórico */}
+        <div className="p-1">
+        <img src="icon.png" className="absolute"></img>
+          <h2 className="text-[#629584] font-bold mb-2">Histórico de Busca</h2>
+          <ul className="text-[#629584] font-bold space-y-2">
+            <li className="cursor-pointer hover:text-teal-800">Feira de Santana</li>
+            <li className="cursor-pointer hover:text-teal-800">Salvador</li>
+            <li className="cursor-pointer hover:text-teal-800">Amélia Rodrigues</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="w-3/4 bg-teal-700 flex justify-center items-center relative">
+        {/* Imagem Principal */}
+        <img
+          src="/main-image.png"
+          alt="Main Illustration"
+          className="w-1/2 h-auto"
+        />
+
+        {/* Fundo Decorativo */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-teal-800 rounded-t-full" />
       </div>
     </div>
   );
