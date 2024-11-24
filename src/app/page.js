@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Home() {
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#387478]">
@@ -38,8 +38,8 @@ export default function Home() {
             />
           </div>
           <button
+            type="button"
             onClick={() => router.push('/telaInicial')}
-            type="submit"
             className="w-full bg-[#243642] text-white font-medium py-2 rounded hover:bg-teal-800 transition"
           >
             Entrar
